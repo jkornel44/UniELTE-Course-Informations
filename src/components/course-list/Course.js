@@ -1,40 +1,49 @@
-function Course() {
+function Course({ data }) {
+    
+    const getTypeColor = () => {
+        switch(data['Oratipus']) {
+            case 'elõadás'   : return "bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs";
+            case 'gyakorlat' : return "bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs";
+            default : return "bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs";
+        }
+    }
+    
     return(
         <tr className="border-b border-gray-200 hover:bg-gray-100">
 
             <td className="py-3 px-6 text-left">
                 <div className="flex items-center">
-                    <span>IP-18AA2G</span>
+                    <span>{data['Kurzuskod']}</span>
                 </div>
             </td>
 
             <td className="py-3 px-6 text-left whitespace-nowrap">
                 <div className="flex items-center">
-                    <span className="font-medium">Algoritmusok és adatszerkezetek II Gy</span>
+                    <span className="font-medium text-truncate" style={{maxWidth: 250+"px"}}>{data['Kurzusnev']}</span>
                 </div>
             </td>
 
             <td className="py-3 px-6 ">
                 <div className="flex items-center justify-center">
-                    <span className="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Előadás - 01</span>
+                    <span className={getTypeColor()}>{data['Oratipus']} - {data['Csop']}</span>
                 </div>
             </td>
 
             <td className="py-3 px-6 text-left">
                 <div className="flex items-center">
-                    <span>Vadász Péter</span>
+                    <span>{data['Oktato']}</span>
                 </div>
             </td>
 
             <td className="py-3 px-6 text-left">
                 <div className="flex items-center">
-                    <span>Csütörtök 8:00-10:00</span>
+                    <span>{data['Idopont']}</span>
                 </div>
             </td>
 
             <td className="py-3 px-6 text-left">
                 <div className="flex items-center">
-                    <span>Déli Tömb 00-112</span>
+                    <span className="text-truncate" style={{maxWidth: 150+"px"}}>{data['Helyszin']}</span>
                 </div>
             </td>
 
