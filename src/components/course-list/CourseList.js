@@ -12,7 +12,7 @@ function CourseList({ courses }) {
                         <th className="py-3 px-6 text-left">Oktató</th>
                         <th className="py-3 px-6 text-left">Időpont</th>
                         <th className="py-3 px-6 text-left">Terem</th>
-                        <th className="py-3 px-6 text-center">Actions</th>
+                        <th className="py-3 px-6 text-center"></th>
                     </tr>
                 </thead>
 
