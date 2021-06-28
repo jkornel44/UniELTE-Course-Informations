@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.5
     - name: Setup the code
       run: npm install
     - name: Deploy to Firebase
