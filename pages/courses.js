@@ -1,14 +1,16 @@
 import Head from 'next/head'
 
 import { useState } from 'react';
-import SearchBar from '../components/Searcbar'
+import { useSelector } from 'react-redux';
 import CourseList from '../components/courses/CourseList';
 import Header from '../components/header/Header';
+import { getSelectedCourses } from '../store/selectedSelector';
 
 export default function Courses() {
 
   const [courses, setCourses] = useState('');
-  const [selected, setSelected] = useState([]);
+  const selected = useSelector(getSelectedCourses);
+  console.log(selected);
 
   return (
     <div className='bg-gray-100 w-screen h-screen'>
@@ -20,7 +22,7 @@ export default function Courses() {
 
         <div className='md:px-5 md:pb-5'>
             <Header />
-            <CourseList courses={courses} selected={selected} setSelected={setSelected} mylist={true}/>
+            <CourseList courses={selected} selected={selected} mylist={true}/>
         </div> 
     </div> 
   )

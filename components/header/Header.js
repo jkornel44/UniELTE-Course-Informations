@@ -5,7 +5,7 @@ import { HomeIcon, SearchIcon, CalendarIcon, AcademicCapIcon} from '@heroicons/r
 function Header() {
 
     return(
-        <div className='flex py-2 overflow-x-auto bg-gray-700 w-full md:bg-transparent'>
+        <div className='flex py-2 overflow-x-auto w-full bg-transparent'>
             <div className='flex felx-grow space-x-3'>
                 <HeaderIcon Icon={HomeIcon} title={'Kezdőlap'} page={''}/>
                 <HeaderIcon Icon={SearchIcon} title={'Keresés'} page={'search'}/>

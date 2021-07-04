@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { PlusCircleIcon, XCircleIcon } from '@heroicons/react/solid';
+import { useDispatch } from 'react-redux';
+import { addCourse, removeCourse } from '../../store/selectedActions';
 
-function Course({ data, selected, setSelected, mylist }) {
+function Course({ data, mylist }) {
+    const dispatch = useDispatch();
+
     const getTypeColor = () => {
         switch(data['Oratipus']) {
             case 'elõadás'   : return 'purple';
@@ -15,14 +19,11 @@ function Course({ data, selected, setSelected, mylist }) {
 
     const handleSelect = () => {
         if (!mylist) {
-            setSelected(
-                [...selected, data]
-            );
+            dispatch(addCourse(data));
         } else {
-            setSelected(
-                [...selected].filter(c => !isEqual(c, data))
-            );
+            dispatch(removeCourse(data));
         }
+        console.log('katt')
     } 
 
     const isEqual = (course, mycourse) => {
@@ -70,9 +71,9 @@ function Course({ data, selected, setSelected, mylist }) {
             <td className="py-3 px-6 text-center">
                 <div className="flex item-center justify-center">   
                     { !mylist ?
-                        <PlusCircleIcon className='h-4 transform hover:text-green-500 hover:scale-110 cursor-pointer'/>
+                        <PlusCircleIcon className='h-4 transform hover:text-green-500 hover:scale-110 cursor-pointer' onClick={() => handleSelect()}/>
                         :
-                        <XCircleIcon className='h-4 transform hover:text-red-500 hover:scale-110 cursor-pointer'/>
+                        <XCircleIcon className='h-4 transform hover:text-red-500 hover:scale-110 cursor-pointer' onClick={() => handleSelect()}/>
                     }
                 </div>
             </td>

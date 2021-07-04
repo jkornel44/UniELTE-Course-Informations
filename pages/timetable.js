@@ -4,11 +4,13 @@ import { useState } from 'react';
 import SearchBar from '../components/Searcbar'
 import TimeTable from '../components/timetable/TimeTable';
 import Header from '../components/header/Header';
+import { useSelector } from 'react-redux';
+import { getSelectedCourses } from '../store/selectedSelector';
 
 export default function Timetable() {
 
   const [courses, setCourses] = useState('');
-  const [selected, setSelected] = useState([]);
+  const selected = useSelector(getSelectedCourses);
 
 
   const createTask = (course) => {
@@ -37,7 +39,7 @@ export default function Timetable() {
   } 
 
   const createTaskList = (selected) => {
-    return selected.filter(s => s.Idopont !== '').map(s => createTask(s));
+    return selected.filter(s => s.Idopont !== undefined).map(s => createTask(s));
   }
 
   return (
