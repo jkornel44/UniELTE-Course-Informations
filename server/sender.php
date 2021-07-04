@@ -1,5 +1,4 @@
-<?php
-    header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
     $rest_json = file_get_contents("php://input");
 
     $data = $_POST;
@@ -12,9 +11,5 @@
     
     $response = curl_exec($curl);
     curl_close($curl);
-
-    $fp = fopen('results.txt', 'w');
-    fwrite($fp, print_r($response, TRUE));
-    fclose($fp);
-    
-?>
+        
+    echo $response;
