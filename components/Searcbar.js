@@ -77,7 +77,7 @@ function SearchBar({ setCourses }) {
                     <div className="form-floating w-full">
                         <select className="form-select" id="semester" aria-label="choosed semester" value={semesterValue} onChange={e => setSemesterValue(e.target.value)}>
                             <option value="2021-2022-1">2021-2022-1</option>
-                            <option value="2020-2021-2">2020-2021-2</option>
+                            <option value="2020-2021-2">2021-2022-2</option>
                         </select>
                         <label htmlFor="semester">Időszak</label>
                     </div>
